@@ -1,0 +1,97 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Sentera
+providerId: sentera
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- Precision Agriculture
+- Aerial Imagery
+- Drones
+- Sensors
+- Analytics
+- Plans
+description: >-
+  Sentera does not publish standalone, metered API pricing. API access to the
+  FieldAgent GraphQL endpoint is included with a FieldAgent subscription, which
+  is sold as tiered packages tied to sensor/drone hardware and platform use.
+  Programmatic and partner data integration is commercial and arranged through
+  Sentera sales, so specific API rates are not reconciled in this artifact.
+notes: >-
+  Pricing reflects publicly referenced FieldAgent subscription tiers and may
+  change; the Enterprise License (research / seed / agribusiness) and any
+  partner API/data-integration terms are quote-based. Verify current terms with
+  Sentera during reconciliation.
+sources:
+- https://sentera.com/fieldagent/
+- https://api.sentera.com/api/getting_started/introduction.html
+plans:
+- id: sentera-sensor-included
+  name: Sensor-Included FieldAgent Subscription
+  type: bundled
+  description: >-
+    Every Sentera sensor purchase includes a one-year FieldAgent subscription
+    (Mobile, Web, Desktop) covering basic capture, processing, and viewing.
+  entries:
+  - label: Included FieldAgent (1 year)
+    name: sensor_included
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: included with Sentera sensor purchase
+    userMultiplied: false
+  elements:
+  - name: FieldAgent Mobile / Web / Desktop
+  - name: Imagery Capture & Processing
+- id: sentera-fieldagent-pro
+  name: FieldAgent Pro
+  type: subscription
+  description: >-
+    Annual FieldAgent Pro subscription with expanded cloud storage and
+    platform features; includes access to the FieldAgent GraphQL API for the
+    account.
+  entries:
+  - label: FieldAgent Pro (annual)
+    name: fieldagent_pro
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: from ~$500/year (varies by package; verify with Sentera)
+    userMultiplied: false
+  elements:
+  - name: FieldAgent Platform
+  - name: Cloud Storage
+  - name: FieldAgent GraphQL API Access
+- id: sentera-enterprise
+  name: Enterprise License
+  type: enterprise
+  description: >-
+    Sentera's full analytics ecosystem for global research programs, seed
+    companies, and agribusinesses requiring scale, plot analytics, and partner
+    data integrations. Quote-based; contact Sentera sales.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Plot Analytics
+  - name: Research / Seed Program Tooling
+  - name: Partner Data Integration & API Access
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

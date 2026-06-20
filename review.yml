@@ -1,0 +1,109 @@
+aid: sentera
+name: Sentera
+review:
+  question: Does Sentera expose a documented public REST API, or is the FieldAgent API GraphQL?
+  answer: false
+  date: '2026-06-20'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Sentera's FieldAgent API is a
+    request/response GraphQL API over HTTP with no documented streaming,
+    Server-Sent Events, or WebSocket surface. The API does expose webhook
+    subscription mutations for event notifications, but webhooks are
+    outbound HTTP callbacks, not an event-streaming protocol modeled by
+    AsyncAPI, so none was authored.
+findings:
+  summary: |
+    Sentera's FieldAgent API is a documented GraphQL API, not a
+    resource-oriented REST API. Every query and mutation is sent to a single
+    HTTP endpoint, https://api.sentera.com/graphql, using POST (GET is also
+    supported). Requests authenticate with a Sentera auth_token presented as
+    a Bearer token in the Authorization header. The public reference docs at
+    api.sentera.com/api/docs are open, but obtaining an auth_token requires a
+    Sentera / FieldAgent account, so live access is effectively
+    customer/partner-gated. The schema exposes 30+ queries (field, fields,
+    survey, surveys, task, tasks, analytic, catalog, order, orders,
+    organization, organizations, user, and sync_* operations) and 80+
+    mutations (create/update/delete field, share_fields, place_order,
+    create_orders, cancel_orders, upsert_* bulk operations, file/image
+    management, and webhook subscriptions). Because GraphQL has no per-resource
+    REST paths, the OpenAPI artifact models only the one real HTTP transport
+    endpoint; the typed object graph is documented in graphql/sentera-graphql.md.
+    Sentera was acquired by John Deere in 2025. A third-party integration layer
+    (Leaf) also offers access to FieldAgent imagery and analytics.
+  transports:
+    - protocol: GraphQL
+      scheme: https
+      baseURL: https://api.sentera.com/graphql
+      documented: true
+      note: Single endpoint for all queries and mutations; POST and GET supported.
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No resource-oriented REST API is documented; FieldAgent is GraphQL-only.
+    - protocol: Webhooks
+      scheme: https
+      documented: true
+      note: Webhook subscription mutations deliver outbound event notifications; not a streaming protocol.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket or SSE streaming surface is documented.
+  endpointsConfirmedGraphql:
+    - POST https://api.sentera.com/graphql
+    - GET  https://api.sentera.com/graphql
+  representativeOperations:
+    queries:
+      - field
+      - fields
+      - survey
+      - surveys
+      - task
+      - tasks
+      - analytic
+      - catalog
+      - order
+      - orders
+      - organization
+      - organizations
+      - user
+    mutations:
+      - create_field
+      - update_field
+      - delete_field
+      - share_fields
+      - place_order
+      - create_orders
+      - cancel_orders
+      - update_order
+sources:
+  - url: https://api.sentera.com/api/getting_started/introduction.html
+    type: Documentation
+    note: States a single GraphQL endpoint for queries and mutations; Bearer auth_token.
+  - url: https://api.sentera.com/api/docs/operation/query/index.html
+    type: APIReference
+    note: Lists 30+ query and 80+ mutation operations on the GraphQL schema.
+  - url: https://api.sentera.com/api/examples/user_mutations
+    type: Documentation
+    note: GraphQL mutation examples (e.g., creating users with sensor activation codes).
+  - url: https://sentera.com/fieldagent/
+    type: Documentation
+    note: FieldAgent platform overview; partner integrations (John Deere Operations Center, Climate FieldView).
+  - url: https://blog.withleaf.io/en/senteraintegrationwithleaf
+    type: Documentation
+    note: Third-party Leaf integration exposing Sentera FieldAgent imagery and analytics.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    Modeled the provider as a GraphQL API. The OpenAPI document
+    (openapi/sentera-openapi.yml) describes only the single real
+    https://api.sentera.com/graphql transport endpoint - no REST resource
+    paths were fabricated. A GraphQL companion note (graphql/sentera-graphql.md)
+    documents the endpoint, Bearer auth_token authentication, and the
+    representative query/mutation surface. No AsyncAPI was authored because no
+    streaming protocol is documented.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

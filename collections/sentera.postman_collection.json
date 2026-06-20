@@ -1,0 +1,186 @@
+{
+  "info": {
+    "name": "Sentera FieldAgent API",
+    "description": "Sentera FieldAgent is a GraphQL API. All operations are sent to the single endpoint https://api.sentera.com/graphql using POST, authenticated with a Sentera auth_token as a Bearer token. This collection provides representative GraphQL query and mutation requests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{authToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sentera.com"
+    }
+  ],
+  "item": [
+    {
+      "name": "GraphQL",
+      "description": "All FieldAgent queries and mutations against the single GraphQL endpoint.",
+      "item": [
+        {
+          "name": "Query fields",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query { fields(owner_id: \\\"ORG_SENTERA_ID\\\") { results { id name } } }\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "List fields for an organization."
+          }
+        },
+        {
+          "name": "Query surveys",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query { surveys(owner_id: \\\"ORG_SENTERA_ID\\\") { results { id name } } }\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "List surveys (capture sessions)."
+          }
+        },
+        {
+          "name": "Query analytic",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query { analytic(sentera_id: \\\"ANALYTIC_SENTERA_ID\\\") { id type } }\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Retrieve a plot-analytics result."
+          }
+        },
+        {
+          "name": "Mutation create_field",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"mutation CreateField($name: String!) { create_field(name: $name) { field { id name } } }\",\n  \"variables\": { \"name\": \"North 40\" }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Create a field."
+          }
+        },
+        {
+          "name": "Mutation place_order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/graphql",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "graphql"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"mutation { place_order(survey_id: \\\"SURVEY_SENTERA_ID\\\") { order { id status } } }\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Place a processing order for a survey."
+          }
+        }
+      ]
+    }
+  ]
+}

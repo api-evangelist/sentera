@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sentera FieldAgent API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{authToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GraphQL",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sentera.com/graphql",
+            "body": {
+              "type": "json",
+              "data": "{\"query\":\"query { fields(owner_id: \\\"ORG_SENTERA_ID\\\") { results { id name } } }\"}"
+            }
+          },
+          "docs": "List fields for an organization via the FieldAgent GraphQL endpoint."
+        },
+        {
+          "info": {
+            "name": "Query surveys",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sentera.com/graphql",
+            "body": {
+              "type": "json",
+              "data": "{\"query\":\"query { surveys(owner_id: \\\"ORG_SENTERA_ID\\\") { results { id name } } }\"}"
+            }
+          },
+          "docs": "List surveys (capture sessions) via the FieldAgent GraphQL endpoint."
+        },
+        {
+          "info": {
+            "name": "Query analytic",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sentera.com/graphql",
+            "body": {
+              "type": "json",
+              "data": "{\"query\":\"query { analytic(sentera_id: \\\"ANALYTIC_SENTERA_ID\\\") { id type } }\"}"
+            }
+          },
+          "docs": "Retrieve a plot-analytics result via the FieldAgent GraphQL endpoint."
+        },
+        {
+          "info": {
+            "name": "Mutation create_field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sentera.com/graphql",
+            "body": {
+              "type": "json",
+              "data": "{\"query\":\"mutation CreateField($name: String!) { create_field(name: $name) { field { id name } } }\",\"variables\":{\"name\":\"North 40\"}}"
+            }
+          },
+          "docs": "Create a field via the FieldAgent GraphQL endpoint."
+        },
+        {
+          "info": {
+            "name": "Mutation place_order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sentera.com/graphql",
+            "body": {
+              "type": "json",
+              "data": "{\"query\":\"mutation { place_order(survey_id: \\\"SURVEY_SENTERA_ID\\\") { order { id status } } }\"}"
+            }
+          },
+          "docs": "Place a processing order for a survey via the FieldAgent GraphQL endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

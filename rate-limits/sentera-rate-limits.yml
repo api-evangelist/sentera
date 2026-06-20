@@ -1,0 +1,59 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Sentera
+providerId: sentera
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- Precision Agriculture
+- Aerial Imagery
+- Drones
+- Sensors
+- Analytics
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Sentera does not publish specific public rate-limit numbers for the FieldAgent
+  GraphQL API. As a single-endpoint GraphQL service, throttling is typically
+  governed by per-token request limits and query complexity/cost rather than
+  per-resource REST quotas. Concrete limits are account- and agreement-specific
+  and are not reconciled in this artifact.
+notes: >-
+  Verify any documented request-rate or query-complexity limits, pagination
+  caps, and recommended backoff behavior with Sentera during reconciliation.
+  GraphQL clients should paginate large result sets and request only needed
+  fields to stay within query-cost ceilings.
+sources:
+- https://api.sentera.com/api/getting_started/introduction.html
+- https://api.sentera.com/api/docs/operation/query/index.html
+responseCodes:
+  throttled: 429
+limits:
+- name: Requests Per Token
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Per-auth_token request rate against the single GraphQL endpoint; not publicly published.
+- name: Query Complexity / Cost
+  scope: request
+  metric: complexity
+  limit: see provider documentation
+  notes: GraphQL query depth/cost may be bounded server-side; deep or wide queries can be rejected.
+- name: Pagination Page Size
+  scope: request
+  metric: records
+  limit: see provider documentation
+  notes: List queries (fields, surveys, tasks, orders) are paginated; page-size caps apply.
+policies:
+- name: Field Selection
+  description: Request only the fields you need to minimize query cost and payload size.
+- name: Backoff Strategy
+  description: Implement exponential backoff with jitter and honor Retry-After on 429 responses.
+- name: Pagination
+  description: Use cursor/offset pagination for large result sets rather than unbounded queries.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
