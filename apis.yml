@@ -110,6 +110,10 @@ apis:
     and user administration, field sharing, and webhook subscriptions for event
     notifications, all exposed as FieldAgent GraphQL mutations and queries.
 common:
+- type: DomainSecurity
+  url: security/sentera-domain-security.yml
+- type: Authentication
+  url: authentication/sentera-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/sentera
 - type: Website
@@ -122,6 +126,8 @@ common:
   url: rate-limits/sentera-rate-limits.yml
 - type: FinOps
   url: finops/sentera-finops.yml
+- type: Blog
+  url: https://sentera.com/feed/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

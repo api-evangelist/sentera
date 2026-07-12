@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/sentera-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'Sentera auth_token presented as `Authorization: Bearer <auth_token>`. See the
+    Authentication and Authorization documentation for obtaining a token.'
+  sources:
+  - openapi/sentera-openapi.yml
