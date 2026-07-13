@@ -1,0 +1,13 @@
+{
+  "repo": "sentera",
+  "feeds": [
+    {
+      "source": "https://sentera.com/feed/",
+      "feed_url": "https://sentera.com/feed/",
+      "title": "Sentera",
+      "saved": 0
+    }
+  ],
+  "fetched": "2026-07-11T11:43:46Z",
+  "post_count": 10
+}
