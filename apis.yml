@@ -110,6 +110,8 @@ apis:
     and user administration, field sharing, and webhook subscriptions for event
     notifications, all exposed as FieldAgent GraphQL mutations and queries.
 common:
+- type: AgenticAccess
+  url: agentic-access/sentera-agentic-access.yml
 - type: DomainSecurity
   url: security/sentera-domain-security.yml
 - type: Authentication
