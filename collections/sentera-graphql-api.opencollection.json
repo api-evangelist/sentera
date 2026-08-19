@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sentera FieldAgent GraphQL API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GraphQL",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute a FieldAgent GraphQL query via GET",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sentera.com/graphql",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "URL-encoded GraphQL query document."
+              },
+              {
+                "name": "variables",
+                "value": "",
+                "type": "query",
+                "description": "URL-encoded JSON object of GraphQL variables."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "GraphQL queries may also be issued as a GET request with the `query` (and optional `variables`) passed as query-string parameters. Requires the same Bearer auth_token."
+        },
+        {
+          "info": {
+            "name": "Execute a FieldAgent GraphQL query or mutation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sentera.com/graphql",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Single GraphQL endpoint for all FieldAgent operations. Send a GraphQL query or mutation in the request body. Requires a Sentera auth_token supplied as a Bearer token in the Authorization header. Returns a standard GraphQL response envelope with `data` and/or `errors`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

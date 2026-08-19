@@ -1,0 +1,342 @@
+{
+  "item": [
+    {
+      "id": "52977ee1-9d0b-45fc-ae4b-bfc5dd89ad1b",
+      "name": "GraphQL",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a00f5890-0555-42c1-9b9c-87bff3e8b58a",
+          "name": "Execute a FieldAgent GraphQL query or mutation",
+          "request": {
+            "name": "Execute a FieldAgent GraphQL query or mutation",
+            "description": {
+              "content": "Single GraphQL endpoint for all FieldAgent operations. Send a GraphQL query or mutation in the request body. Requires a Sentera auth_token supplied as a Bearer token in the Authorization header. Returns a standard GraphQL response envelope with `data` and/or `errors`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "graphql"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"operationName\": \"<string>\",\n  \"variables\": {\n    \"key_0\": \"string\",\n    \"key_1\": 2922.465508982366\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b0813538-3166-411c-8945-0779589523e9",
+              "name": "GraphQL response. Note that GraphQL returns HTTP 200 even when the response carries field-level `errors`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"query { fields(owner_id: \\\"ORG_SENTERA_ID\\\") { results { id name } } }\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": true,\n    \"key_1\": \"string\"\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": [\n        \"string\",\n        \"string\"\n      ],\n      \"locations\": [\n        {\n          \"line\": 5936,\n          \"column\": 9117\n        },\n        {\n          \"line\": 1341,\n          \"column\": 5044\n        }\n      ]\n    },\n    {\n      \"message\": \"string\",\n      \"path\": [\n        \"string\",\n        \"string\"\n      ],\n      \"locations\": [\n        {\n          \"line\": 551,\n          \"column\": 7873\n        },\n        {\n          \"line\": 4869,\n          \"column\": 501\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c87bf977-0a98-49f4-8ccd-7fcb260edb18",
+              "name": "Missing or invalid Sentera auth_token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"query { fields(owner_id: \\\"ORG_SENTERA_ID\\\") { results { id name } } }\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2690af74-62ab-439b-86e4-2305b45b3477",
+          "name": "Execute a FieldAgent GraphQL query via GET",
+          "request": {
+            "name": "Execute a FieldAgent GraphQL query via GET",
+            "description": {
+              "content": "GraphQL queries may also be issued as a GET request with the `query` (and optional `variables`) passed as query-string parameters. Requires the same Bearer auth_token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "graphql"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) URL-encoded GraphQL query document."
+                },
+                {
+                  "disabled": false,
+                  "key": "variables",
+                  "value": "<string>",
+                  "description": "URL-encoded JSON object of GraphQL variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2a8f93bc-a67a-475c-ba3b-3f14c54752a0",
+              "name": "GraphQL response envelope.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"key_0\": \"string\",\n    \"key_1\": true\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": [\n        \"string\",\n        \"string\"\n      ],\n      \"locations\": [\n        {\n          \"line\": 5322,\n          \"column\": 165\n        },\n        {\n          \"line\": 7244,\n          \"column\": 2863\n        }\n      ]\n    },\n    {\n      \"message\": \"string\",\n      \"path\": [\n        \"string\",\n        \"string\"\n      ],\n      \"locations\": [\n        {\n          \"line\": 1,\n          \"column\": 2421\n        },\n        {\n          \"line\": 8584,\n          \"column\": 5187\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "593ddfb5-07fb-4a53-8a8b-24728db7f92b",
+              "name": "Missing or invalid Sentera auth_token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphql"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sentera.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dfd7dbf4-e30e-40fa-ab07-404e2edad0a9",
+    "name": "Sentera FieldAgent GraphQL API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Sentera FieldAgent API is a GraphQL API, not a resource-oriented REST API. All operations - queries and mutations covering fields, surveys, flight tasks, imagery, mosaics, analytics, orders, and organizations - are sent as GraphQL documents to a single HTTP endpoint (https://api.sentera.com/graphql) using POST (GET is also supported).\nBecause there are no per-resource REST paths to enumerate, this OpenAPI document models only the one real HTTP transport endpoint that fronts the GraphQL schema. The full operation catalog (30+ queries such as `field`, `fields`, `survey`, `surveys`, `task`, `tasks`, `analytic`, `order`, `orders`, `organization`, and 80+ mutations such as `create_field`, `place_order`, and webhook subscriptions) is defined by the GraphQL schema rather than by HTTP paths; see graphql/sentera-graphql.md and the upstream GraphQL reference at https://api.sentera.com/api/docs/operation/query/index.html.\nNo fabricated REST endpoints are included.\n\nContact Support:\n Name: Sentera Support",
+      "type": "text/plain"
+    }
+  }
+}
