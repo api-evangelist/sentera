@@ -62,6 +62,11 @@ apis:
   - type: GraphQL
     url: graphql/sentera-graphql.md
 common:
+- type: ParentCompany
+  url: https://apis.io/providers/deere/
+  name: John Deere
+  x-relationship: acquired
+  x-evidence: "Sentera was acquired by John Deere in 2025."
 - type: AgenticAccess
   url: agentic-access/sentera-agentic-access.yml
 - type: DomainSecurity
