@@ -46,16 +46,16 @@ created: '2026-06-20'
 modified: '2026-06-20'
 specificationVersion: '0.23'
 apis:
-- aid: sentera:sentera-graphql-api
-  name: Sentera GraphQL API
-  description: The GraphQL API from Sentera — 1 operation(s) for graphql.
+- aid: sentera:sentera-graph-ql-api
+  name: Sentera Graph QL API
+  description: The Graph QL API from Sentera — 1 operation(s) for graph ql.
   humanURL: https://api.sentera.com/api/getting_started/introduction.html
   baseURL: https://api.sentera.com/graphql
   tags:
-  - GraphQL
+  - Graph QL
   properties:
   - type: OpenAPI
-    url: openapi/sentera-graphql-api-openapi.yml
+    url: openapi/sentera-graph-ql-api-openapi.yml
   - type: Documentation
     url: https://api.sentera.com/api/getting_started/introduction.html
   - type: APIReference
