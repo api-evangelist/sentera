@@ -1,11 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Sentera FieldAgent GraphQL API
-  description: 'The Sentera FieldAgent API is a GraphQL API, not a resource-oriented REST API. All operations - queries and mutations covering fields, surveys, flight tasks, imagery, mosaics, analytics, orders, and organizations - are sent as GraphQL documents to a single HTTP endpoint (https://api.sentera.com/graphql) using POST (GET is also supported).
-
-    Because there are no per-resource REST paths to enumerate, this OpenAPI document models only the one real HTTP transport endpoint that fronts the GraphQL schema. The full operation catalog (30+ queries such as `field`, `fields`, `survey`, `surveys`, `task`, `tasks`, `analytic`, `order`, `orders`, `organization`, and 80+ mutations such as `create_field`, `place_order`, and webhook subscriptions) is defined by the GraphQL schema rather than by HTTP paths; see graphql/sentera-graphql.md and the upstream GraphQL reference at https://api.sentera.com/api/docs/operation/query/index.html.
-
-    No fabricated REST endpoints are included.'
+  title: Sentera FieldAgent Graph QL API
+  description: The Sentera FieldAgent API is a GraphQL API, not a resource-oriented REST API.
   termsOfService: https://sentera.com/terms-of-use/
   contact:
     name: Sentera Support
@@ -15,13 +11,13 @@ servers:
 - url: https://api.sentera.com
   description: Sentera FieldAgent GraphQL endpoint host
 tags:
-- name: GraphQL
+- name: Graph QL
 paths:
   /graphql:
     post:
       operationId: executeGraphQL
       tags:
-      - GraphQL
+      - Graph QL
       summary: Execute a FieldAgent GraphQL query or mutation
       description: Single GraphQL endpoint for all FieldAgent operations. Send a GraphQL query or mutation in the request body. Requires a Sentera auth_token supplied as a Bearer token in the Authorization header. Returns a standard GraphQL response envelope with `data` and/or `errors`.
       security:
@@ -55,7 +51,7 @@ paths:
     get:
       operationId: executeGraphQLGet
       tags:
-      - GraphQL
+      - Graph QL
       summary: Execute a FieldAgent GraphQL query via GET
       description: GraphQL queries may also be issued as a GET request with the `query` (and optional `variables`) passed as query-string parameters. Requires the same Bearer auth_token.
       security:
@@ -84,13 +80,29 @@ paths:
           description: Missing or invalid Sentera auth_token.
 components:
   schemas:
+    GraphQLRequest:
+      type: object
+      required:
+      - query
+      properties:
+        query:
+          type: string
+          description: The GraphQL query or mutation document.
+        operationName:
+          type: string
+          description: Name of the operation to run when the document defines several.
+        variables:
+          type: object
+          additionalProperties: true
+          description: Key/value map of GraphQL variables.
     GraphQLResponse:
       type: object
       properties:
         data:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties: true
-          nullable: true
           description: Result data keyed by the requested fields.
         errors:
           type: array
@@ -113,21 +125,6 @@ components:
                       type: integer
                     column:
                       type: integer
-    GraphQLRequest:
-      type: object
-      required:
-      - query
-      properties:
-        query:
-          type: string
-          description: The GraphQL query or mutation document.
-        operationName:
-          type: string
-          description: Name of the operation to run when the document defines several.
-        variables:
-          type: object
-          additionalProperties: true
-          description: Key/value map of GraphQL variables.
   securitySchemes:
     bearerAuth:
       type: http
