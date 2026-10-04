@@ -80,6 +80,21 @@ paths:
           description: Missing or invalid Sentera auth_token.
 components:
   schemas:
+    GraphQLRequest:
+      type: object
+      required:
+      - query
+      properties:
+        query:
+          type: string
+          description: The GraphQL query or mutation document.
+        operationName:
+          type: string
+          description: Name of the operation to run when the document defines several.
+        variables:
+          type: object
+          additionalProperties: true
+          description: Key/value map of GraphQL variables.
     GraphQLResponse:
       type: object
       properties:
@@ -110,21 +125,6 @@ components:
                       type: integer
                     column:
                       type: integer
-    GraphQLRequest:
-      type: object
-      required:
-      - query
-      properties:
-        query:
-          type: string
-          description: The GraphQL query or mutation document.
-        operationName:
-          type: string
-          description: Name of the operation to run when the document defines several.
-        variables:
-          type: object
-          additionalProperties: true
-          description: Key/value map of GraphQL variables.
   securitySchemes:
     bearerAuth:
       type: http
