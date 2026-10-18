@@ -52,6 +52,8 @@ apis:
   humanURL: https://api.sentera.com/api/getting_started/introduction.html
   baseURL: https://api.sentera.com/graphql
   tags:
+  - GraphQL
+  tags_raw:
   - Graph QL
   properties:
   - type: OpenAPI
