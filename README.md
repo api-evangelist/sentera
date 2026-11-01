@@ -1,4 +1,4 @@
-# Sentera (sentera)
+# Sentera
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,126 +66,121 @@
 
 Sentera is a precision-agriculture company building aerial imagery sensors, drones, and the FieldAgent platform for capturing, processing, and analyzing in-season field data. The FieldAgent API is a single-endpoint GraphQL interface (https://api.sentera.com/graphql) that gives customers and integration partners programmatic access to fields, surveys, flight tasks, imagery, mosaics, plot analytics, and orders. Sentera was acquired by John Deere in 2025.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/sentera/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/sentera/refs/heads/main/apis.yml)
+**Areas:** Precision Agriculture · Aerial Imagery · Drones · Sensors · Analytics · GraphQL
 
-## Tags
+## Sentera on APIs.io
 
-- Precision Agriculture
-- Aerial Imagery
-- Drones
-- Sensors
-- Analytics
-- GraphQL
+Everything profiled for Sentera is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/sentera/](https://apis.io/providers/sentera/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (1)
 
-- **Created:** 2026-06-20
-- **Modified:** 2026-06-20
+- [Sentera Graph QL API](https://apis.io/apis/sentera/sentera-graph-ql-api/) — The Graph QL API from Sentera — 1 operation(s) for graph ql.
 
-## APIs
+### Published properties
 
-### Sentera FieldAgent GraphQL API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Single-endpoint GraphQL API (POST/GET to https://api.sentera.com/graphql) exposing the full FieldAgent object graph - fields, surveys, flight tasks, analytics, and orders - through queries and mutations authenticated with a Sentera Bearer auth_token.
+#### GraphQL (1)
 
-- **Human URL:** [https://api.sentera.com/api/getting_started/introduction.html](https://api.sentera.com/api/getting_started/introduction.html)
-- **Base URL:** `https://api.sentera.com/graphql`
+GraphQL schemas.
 
-#### Tags
+- [Sentera FieldAgent GraphQL API](https://apis.io/graphqls/sentera/sentera-graphql/)
 
-- GraphQL
-- FieldAgent
-- Fields
-- Surveys
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://api.sentera.com/api/getting_started/introduction.html)
-- [API Reference](https://api.sentera.com/api/docs/operation/query/index.html)
-- [OpenAPI](openapi/sentera-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [GraphQL](graphql/sentera-graphql.md)
-- [Postman Collection](collections/sentera.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sentera.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Sentera Agentic Access](https://apis.io/agentic-access/sentera/sentera-agentic-access/)
 
-### Sentera Imagery & Data API
+#### Collections (2)
 
-Access to captured imagery, orthomosaics, and processed map layers (RGB, NDVI, NDRE) tied to surveys and flight tasks, plus imagery upload and sync operations, surfaced through the FieldAgent GraphQL endpoint.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://api.sentera.com/api/getting_started/introduction.html](https://api.sentera.com/api/getting_started/introduction.html)
-- **Base URL:** `https://api.sentera.com/graphql`
+- [Sentera FieldAgent API](https://apis.io/collections/sentera/open-sentera/)
+- [Sentera FieldAgent GraphQL API](https://apis.io/collections/sentera/open-sentera-graphql-api/)
 
-#### Tags
+#### Security (2)
 
-- Imagery
-- Mosaics
-- Data
-- GraphQL
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Sentera Authentication](https://apis.io/security/sentera/sentera-authentication/)
+- [Sentera Domain Security](https://apis.io/security/sentera/sentera-domain-security/)
 
-- [Documentation](https://api.sentera.com/api/getting_started/introduction.html)
-- [API Reference](https://api.sentera.com/api/docs/operation/query/index.html)
-- [OpenAPI](openapi/sentera-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [GraphQL](graphql/sentera-graphql.md)
-- [Postman Collection](collections/sentera.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sentera.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### Sentera Plot Analytics API
+Published plans, tiers and prices.
 
-Plant-level analytic results - stand/population counts, tassel counts, plot statistics, and field insights used by seed and research programs - retrievable via the analytic and catalog GraphQL queries.
+- [Sentera Plans Pricing](https://apis.io/plans/sentera/sentera-plans-pricing/)
 
-- **Human URL:** [https://api.sentera.com/api/getting_started/introduction.html](https://api.sentera.com/api/getting_started/introduction.html)
-- **Base URL:** `https://api.sentera.com/graphql`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Analytics
-- Plot Analytics
-- Stand Count
-- Research
+- [Sentera Rate Limits](https://apis.io/rate-limits/sentera/sentera-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://api.sentera.com/api/getting_started/introduction.html)
-- [API Reference](https://api.sentera.com/api/docs/operation/query/index.html)
-- [OpenAPI](openapi/sentera-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [GraphQL](graphql/sentera-graphql.md)
-- [Postman Collection](collections/sentera.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sentera.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-### Sentera Orders & Organizations API
+- [Sentera Finops](https://apis.io/finops/sentera/sentera-finops/)
 
-Processing-order placement and lifecycle management, organization and user administration, field sharing, and webhook subscriptions for event notifications, all exposed as FieldAgent GraphQL mutations and queries.
+## Where to find this API
 
-- **Human URL:** [https://api.sentera.com/api/getting_started/introduction.html](https://api.sentera.com/api/getting_started/introduction.html)
-- **Base URL:** `https://api.sentera.com/graphql`
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags
-
-- Orders
-- Organizations
-- Webhooks
-- GraphQL
-
-#### Properties
-
-- [Documentation](https://api.sentera.com/api/getting_started/introduction.html)
-- [API Reference](https://api.sentera.com/api/docs/operation/query/index.html)
-- [OpenAPI](openapi/sentera-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [GraphQL](graphql/sentera-graphql.md)
-- [Postman Collection](collections/sentera.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sentera.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/sentera)
 - [Website](https://sentera.com/)
 - [Documentation](https://api.sentera.com/api/getting_started/introduction.html)
-- [Plans](plans/sentera-plans-pricing.yml)
-- [Rate Limits](rate-limits/sentera-rate-limits.yml)
-- [Fin Ops](finops/sentera-finops.yml)
+- [Blog](https://sentera.com/feed/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 27.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 51.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 7.9 |
+
+**Agent readiness 22.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/sentera/](https://apis.io/providers/sentera/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Sentera: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/sentera/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
